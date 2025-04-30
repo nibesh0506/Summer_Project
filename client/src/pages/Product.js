@@ -1,0 +1,80 @@
+import React, { useEffect, useState } from "react";
+import { getProduct, productStar } from "../functions/product";
+import SingleProduct from "../components/cards/SingleProduct";
+import { useSelector } from "react-redux";
+import { getRelated } from "../functions/product";
+import ProductCard from "../components/cards/ProductCard";
+import MetaData from "../layout/MetaData";
+
+const Product = ({ match }) => {
+  const [product, setProduct] = useState({});
+  const [related, setRelated] = useState([]);
+  const [star, setStar] = useState(0);
+  const { user } = useSelector((state) => ({ ...state }));
+  const { slug } = match.params;
+
+  useEffect(() => {
+    loadSingleProduct();
+  }, [slug]);
+
+  useEffect(() => {
+    if (product.ratings && user) {
+      let existingRatingObject = product.ratings.find(
+        (ele) => ele.postedBy.toString() === user._id.toString()
+      );
+      existingRatingObject && setStar(existingRatingObject.star);
+    }
+  });
+
+  const loadSingleProduct = () => {
+    getProduct(slug).then((res) => {
+      setProduct(res.data);
+      getRelated(res.data._id).then((res) => setRelated(res.data));
+    });
+  };
+
+  const onStarClick = (newRating, name) => {
+    setStar(newRating);
+    console.table(newRating, name);
+    productStar(name, newRating, user.token).then((res) => {
+      console.log("rating clicked", res.data);
+      loadSingleProduct(); 
+    });
+  };
+
+  return (
+    <>
+    <MetaData title="Products"/>
+    <div className="container-fluid">
+      <br/><br/><br/>
+      <div className="row pt-4">
+        <SingleProduct
+          product={product}
+          onStarClick={onStarClick}
+          star={star}
+        />
+      </div>
+
+      <div className="row">
+        <div className="col text-center pt-5 pb-5">
+          <h4 style={{fontSize:'30px'}} className="text-center font-weight-bold p-3 mt-4 mb-5 ">Related Products</h4>
+        </div>
+      </div>
+
+      <div className="row pb-5">
+        {related.length ? (
+          related.map((r) => (
+            <div style={{marginTop:'-80px'}} key={r._id} className="col-md-4">
+              <ProductCard product={r} />
+            </div>
+          ))
+        ) : (
+          <div className="text-center col">No Products Found</div>
+        )}
+      </div>
+    </div>
+    </>
+  );
+};
+
+export default Product;

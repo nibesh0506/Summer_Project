@@ -1,0 +1,18 @@
+.search-box {
+    width: 300px;
+    border-radius: 5px;
+    padding: 8px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .search-box::placeholder {
+    color: #999;
+  }
+  
+  .search-box:focus {
+    border-color: #40a9ff;
+    box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
+  }
+  

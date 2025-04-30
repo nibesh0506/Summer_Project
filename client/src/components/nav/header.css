@@ -1,0 +1,64 @@
+.header-menu {
+  background-color: lightblue;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  border: none;
+}
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: black !important;
+  padding: 0; /* Remove padding to prevent box-like appearance */
+  background: none; /* Ensure no background color */
+}
+
+.menu-item {
+  font-size: 16px;
+  color: black !important;
+}
+
+.menu-item a {
+  color: inherit;
+}
+
+.submenu-item {
+  font-size: 14px;
+}
+
+.float-right {
+  margin-left: auto;
+}
+
+.search-container {
+  margin-left: 20px;
+}
+
+/* Remove default hover and active styles */
+.ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-item:hover,
+.ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-submenu:hover,
+.ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-item-active,
+.ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-submenu-active,
+.ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-item-open,
+.ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-submenu-open,
+.ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-item-selected,
+.ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-submenu-selected {
+  background-color: transparent;
+  border-bottom: 2px solid transparent; /* Remove border box appearance */
+}
+
+.ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-item-selected a,
+.ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-submenu-selected a {
+  color: black !important; /* Keep text color white on selection */
+}
+
+/* Add some padding to the top of the body to prevent content from being hidden under the fixed header */
+body {
+  padding-top: 60px; /* Adjust based on the height of the header */
+}

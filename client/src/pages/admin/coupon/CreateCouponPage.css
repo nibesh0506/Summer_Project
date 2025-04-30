@@ -1,0 +1,86 @@
+/* CreateCouponPage.css */
+
+.create-coupon-page {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .create-coupon-form-container {
+    flex: 1;
+    padding: 20px;
+  }
+  
+  .create-coupon-form {
+    max-width: 400px;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  .form-control {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  
+  .form-control:focus {
+    outline: none;
+    border-color: #007bff;
+  }
+  
+  .form-label {
+    font-weight: bold;
+  }
+  
+  .button-container {
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  .btn-success {
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .btn-success:hover {
+    background-color: #218838;
+  }
+  
+  .coupon-table-container {
+    flex: 1;
+    padding: 20px;
+  }
+  
+  .table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  .table th,
+  .table td {
+    padding: 10px;
+    border: 1px solid #dee2e6;
+  }
+  
+  .table th {
+    background-color: #f8f9fa;
+    text-align: center;
+  }
+  
+  .table td {
+    text-align: center;
+  }
+  
+  .pointer {
+    cursor: pointer;
+  }
+  
